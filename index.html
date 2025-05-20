@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Interativo - Alex J. S. da Silva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="interactive-header">
+        <div class="profile-image-container">
+            <img src="https://placehold.co/180x180/E2E8F0/2D3748?text=Alex" alt="Foto de Alex J. S. da Silva"
+                class="profile-image" id="profilePic">
+        </div>
+        <h1 id="userName">ALEX J. S. DA SILVA</h1>
+        <p id="userTitle">PROFISSIONAL DE INFORMÁTICA</p>
+        <div class="mt-4 contact-info flex flex-wrap gap-2 justify-center">
+            <!-- Telefone -->
+            <a href="tel:+5583991917776" class="icon-button has-tooltip" aria-label="Telefone">
+                <i class="fas fa-phone"></i>
+                <span class="tooltip">Ligar para (83) 9 9191-7776</span>
+            </a>
+            <a href="https://wa.me/5583991917776" target="_blank" rel="noopener" class="icon-button has-tooltip"
+                aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+                <span class="tooltip">Enviar mensagem no WhatsApp</span>
+            </a>
+            <a href="https://t.me/+5583991917776" target="_blank" rel="noopener" class="icon-button has-tooltip"
+                aria-label="Telegram">
+                <i class="fab fa-telegram"></i>
+                <span class="tooltip">Enviar mensagem no Telegram</span>
+            </a>
+            <!-- Email -->
+            <a href="#" id="dynamicEmail" class="icon-button has-tooltip" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+                <span class="tooltip">Enviar email para alexjuniook@gmail.com</span>
+            </a>
+            <!-- Endereço -->
+            <a href="#" id="locationLink" class="icon-button has-tooltip" aria-label="Localização">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="tooltip">Rua Piracaia, 853, Marechal Hermes, Rio de Janeiro - RJ</span>
+            </a>
+            <a href="#" id="mapsBtn" class="icon-button has-tooltip" aria-label="Google Maps">
+                <i class="fas fa-map"></i>
+                <span class="tooltip">Abrir no Google Maps</span>
+            </a>
+            <a href="#" id="wazeBtn" class="icon-button has-tooltip" aria-label="Waze">
+                <i class="fab fa-waze"></i>
+                <span class="tooltip">Abrir no Waze</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <section id="objective" class="mb-10">
+            <div class="card p-6 md:p-8">
+                <h2 class="section-title"><i class="fas fa-bullseye"></i>Objetivo Profissional</h2>
+                <p class="text-lg leading-relaxed text-gray-700" id="professionalObjective">
+                    Busco uma oportunidade, onde possa aplicar minhas habilidades em informática, organização, ou
+                    atendimento ao público para contribuir efetivamente com pontualidade e responsabilidade às operações
+                    da empresa.
+                </p>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <section id="experience" class="mb-10">
+                    <div class="card p-6 md:p-8">
+                        <h2 class="section-title"><i class="fas fa-briefcase"></i>Experiência Profissional</h2>
+                        <div id="experienceList"></div>
+                    </div>
+                </section>
+                <section id="education" class="mb-10">
+                    <div class="card p-6 md:p-8">
+                        <h2 class="section-title"><i class="fas fa-graduation-cap"></i>Formação Acadêmica</h2>
+                        <div id="educationList"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="lg:col-span-1">
+                <section id="skills" class="mb-10">
+                    <div class="card p-6 md:p-8">
+                        <h2 class="section-title"><i class="fas fa-cogs"></i>Habilidades</h2>
+                        <div class="flex flex-wrap gap-3" id="skillsList"></div>
+                    </div>
+                </section>
+                <section id="additional-info" class="mb-10">
+                    <div class="card p-6 md:p-8">
+                        <h2 class="section-title"><i class="fas fa-info-circle"></i>Informações Adicionais</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700" id="additionalInfoList"></ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center p-6 bg-gray-800 text-gray-300 mt-12 rounded-t-lg">
+        <p>&copy; <span id="currentYear"></span> Alex J. S. da Silva. Todos os direitos reservados.</p>
+        <p class="text-sm mt-1">Currículo gerado interativamente.</p>
+    </footer>
+
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <p id="modalMessageText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
