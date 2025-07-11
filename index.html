@@ -53,18 +53,20 @@
         header p.title {
             font-size: 1.2rem;
             color: #555;
+            margin-bottom: 20px;
         }
 
         /* Navegação de sessões */
         nav {
             margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px; /* Reduzido o gap */
             flex-wrap: wrap;
         }
 
@@ -97,7 +99,7 @@
 
         section h2 {
             font-size: 1.8rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #222;
             border-bottom: 2px solid #e0e0e0;
             display: inline-block;
@@ -132,17 +134,24 @@
         /* Botão de download do currículo */
         .btn-download {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
+            margin-top: 10px; /* Reduzida a margem superior */
+            padding: 10px 20px; /* Reduzido o padding */
             background-color: #007acc;
             color: #fff;
             border-radius: 25px;
             font-weight: 600;
+            font-size: 0.95rem; /* Ajustado o tamanho da fonte */
             transition: background-color 0.3s;
+            margin-left: 5px; /* Adicionada margem à esquerda para separar botões */
+            margin-right: 5px; /* Adicionada margem à direita para separar botões */
         }
 
         .btn-download:hover {
             background-color: #005f99;
+        }
+        
+        .download-buttons-container {
+            margin-top: 20px;
         }
 
         /* Seção Sobre (Objetivo / Resumo) */
@@ -150,6 +159,7 @@
             margin-bottom: 15px;
             font-size: 1rem;
             color: #555;
+            text-align: justify;
         }
 
         /* Seção Habilidades */
@@ -157,6 +167,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            list-style: none;
+            padding-left: 0;
         }
 
         .skills-list li {
@@ -165,12 +177,26 @@
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
-            list-style: none;
         }
+        
+        /* Estilo para lista em Informações Adicionais */
+        .additional-info-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .additional-info-list li {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #555;
+        }
+
 
         /* Seção Experiência */
         .job {
             margin-bottom: 30px;
+        }
+        .job:last-child {
+            margin-bottom: 0;
         }
 
         .job h3 {
@@ -179,53 +205,73 @@
             color: #444;
         }
 
-        .job span.period {
+        .job span.position { /* Alterado de .period para .position */
             display: block;
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 10px;
+            font-size: 1rem; /* Aumentado para destacar mais */
+            font-style: italic;
+            color: #666; /* Levemente mais escuro */
+            margin-bottom: 8px;
         }
 
-        .job p {
+        .job p.description { /* Classe específica para descrição */
             font-size: 0.95rem;
             color: #555;
             margin-bottom: 8px;
+            text-align: justify;
         }
 
         /* Seção Formação */
         .education-item {
             margin-bottom: 20px;
         }
+         .education-item:last-child {
+            margin-bottom: 0;
+        }
 
         .education-item h3 {
             font-size: 1.1rem;
-            margin-bottom: 5px;
+            margin-bottom: 3px; /* Reduzida a margem */
             color: #444;
         }
 
-        .education-item span.period {
+        .education-item span.institution { /* Alterado de .period para .institution */
             display: block;
             font-size: 0.9rem;
             color: #777;
+            margin-bottom: 5px; /* Reduzida a margem */
+        }
+        
+        .education-item span.course-type { /* Nova classe para tipo de curso */
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
             margin-bottom: 8px;
         }
 
+
         /* Seção Contato */
+        .contact-info p {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #555;
+        }
+        
         .contact-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             justify-content: center;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .contact-buttons a {
             display: inline-block;
-            padding: 12px 20px;
+            padding: 10px 20px; /* Ajustado padding */
             background-color: #333;
             color: #fff;
             border-radius: 25px;
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Ajustado tamanho da fonte */
             transition: background-color 0.3s;
         }
 
@@ -236,18 +282,50 @@
         /* Rodapé */
         footer {
             text-align: center;
-            padding: 20px 10px;
+            padding: 30px 10px; /* Aumentado padding */
             color: #777;
             font-size: 0.9rem;
+            background-color: #fff;
+            margin-top: 20px;
+            border-top: 2px solid #e0e0e0;
         }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 10px;
+            }
+            nav ul li a {
+                padding: 7px 12px;
+                font-size: 0.85rem;
+            }
+            .btn-download {
+                 display: block; /* Faz os botões de download ocuparem a largura total */
+                 margin-left: auto;
+                 margin-right: auto;
+                 margin-bottom: 10px; /* Espaço entre os botões empilhados */
+                 width: fit-content; /* Ajusta a largura ao conteúdo */
+            }
+            .download-buttons-container a:last-child {
+                margin-bottom: 0; /* Remove margem inferior do último botão */
+            }
+        }
+
 
         @media (max-width: 600px) {
             header h1 {
                 font-size: 2rem;
             }
-
+            header p.title {
+                font-size: 1.1rem;
+            }
             section {
                 padding: 40px 15px;
+            }
+            section h2 {
+                font-size: 1.6rem;
+            }
+            .job h3, .education-item h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -256,38 +334,37 @@
 <body>
     <header>
         <h1>Alex J. S. da Silva</h1>
-        <p class="title">Computer Professional</p>
+        <p class="title">COMPUTER PROFESSIONAL</p>
 
         <nav>
             <ul>
-                <li><a href="#about">Sobre</a></li>
+                <li><a href="#about">Sobre / Objetivo</a></li>
                 <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#experience">Experiência</a></li>
                 <li><a href="#education">Formação</a></li>
+                <li><a href="#additional-info">Informações Adicionais</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
-
-        <!-- Botão para baixar o currículo -->
-        <a href="Currículo Alex J S Silva.pdf" download class="btn-download">Baixar Currículo (PDF)</a>
+        <div class="download-buttons-container">
+            <a href="Currículo Alex J S Silva.pdf" download class="btn-download">Baixar Currículo (PT-BR)</a>
+            <a href="Currículo Alex J S Silva - Inglês.pdf" download class="btn-download">Download CV (EN-US)</a>
+        </div>
     </header>
 
     <div class="container">
-        <!-- Seção Sobre -->
+        <!-- Seção Sobre / Objetivo -->
         <section id="about" class="about">
-            <h2>Sobre</h2>
-            <!-- Foto de perfil clicável abre tamanho real em nova aba -->
+            <h2>Sobre / Objetivo</h2>
             <a href="perfil.jpg" target="_blank" class="profile-photo">
                 <img src="perfil.jpg" alt="Foto de perfil de Alex J. S. da Silva" />
             </a>
             <p>
-                Profissional de informática com experiência em atendimento ao público, edição de conteúdo digital e
-                suporte técnico. Busco oportunidade para aplicar habilidades em organização e comunicação, contribuindo
-                com eficiência e responsabilidade nas operações da empresa.
+                Profissional versátil com experiência em TI, marketing digital e atendimento ao público. Atua com suporte técnico, edição de mídias, design gráfico e gestão de tráfego. Domina ferramentas como Excel, Power BI, TOTVS-RM e Photoshop, além de ter noções em programação. Organizado, proativo e adaptável a diferentes funções e ambientes, com foco em desenvolvimento contínuo e disponibilidade para atuar em diversas regiões.
             </p>
             <p>
-                Conhecimentos em Excel, Word, PowerPoint, Power BI, TOTVS‐RM, JavaScript, Python e HTML-5. Experiência
-                em Social Media, Gestão de Tráfego, edição de áudio/vídeo e Segurança Digital.
+                <strong>Resumo Profissional:</strong><br>
+                Profissional multidisciplinar com experiência em TI, marketing e design, adaptável a diversos setores e focado em resultados.
             </p>
         </section>
 
@@ -295,121 +372,119 @@
         <section id="skills">
             <h2>Habilidades</h2>
             <ul class="skills-list">
-                <li>Excel Avançado</li>
-                <li>Word &amp; PowerPoint</li>
-                <li>Power BI</li>
-                <li>TOTVS‐RM</li>
-                <li>JavaScript Básico</li>
-                <li>Python Básico</li>
-                <li>HTML-5 Básico</li>
-                <li>Edição de Áudio/Vídeo</li>
-                <li>Design Digital (Photoshop CS6)</li>
-                <li>Gestão de Tráfego Pago</li>
+                <li>Excel, Word, Power Point</li>
+                <li>Power BI e TOTVS - RM</li>
+                <li>Atendimento ao público</li>
                 <li>Social Media</li>
+                <li>Gestão de Tráfego</li>
+                <li>Básicos JavaScript, Python e CSS HTML</li>
+                <li>Edição de áudio e vídeo</li>
+                <li>Design de artes digitais</li>
                 <li>Segurança Digital</li>
-                <li>Instrutor de Informática</li>
             </ul>
         </section>
 
-        <!-- Seção Experiência -->
+        <!-- Seção Experiência Profissional -->
         <section id="experience">
             <h2>Experiência Profissional</h2>
 
             <div class="job">
                 <h3>Estivas Novo Prado LTDA</h3>
-                <span class="period">Cargo: Carregador e Separador de Estoque</span>
-                <p>Responsável pelo carregamento e organização de estoques para cargas, garantindo eficiência no
-                    processo.</p>
+                <span class="position">Cargo: Carregador e Separador de Estoque</span>
+                <p class="description">Responsável pelo carregamento e separação de estoques para cargas, garantindo a eficiência e organização do processo.</p>
             </div>
 
             <div class="job">
                 <h3>Câmara Municipal de Baía da Traição</h3>
-                <span class="period">Cargo: Assessor</span>
-                <p>Auxílio em atividades administrativas e de comunicação, prestação de suporte em redação e organização
-                    de arquivos.</p>
+                <span class="position">Cargo: Assessor</span>
+                <p class="description">Desempenhei funções de assessoramento, auxiliando em atividades administrativas e de comunicação.</p>
             </div>
 
             <div class="job">
                 <h3>Eternizzy Photography</h3>
-                <span class="period">Cargo: Editor e Auxiliar de Produção</span>
-                <p>Edição de fotografias, sublimação em produtos diversos e confecção de materiais, entregando
-                    relatórios diários.</p>
+                <span class="position">Cargo: Editor e Auxiliar de Produção</span>
+                <p class="description">Responsável pela edição de fotografias, sublimação em diversos produtos e confecção de materiais concluindo com relatórios diários.</p>
             </div>
-
+            
             <div class="job">
                 <h3>SkyBar</h3>
-                <span class="period">Cargo: Estoquista</span>
-                <p>Responsável pelo recebimento, separação e reabastecimento de produtos, mantendo organização do
-                    estoque.</p>
+                <span class="position">Cargo: Estoquista</span>
+                <p class="description">Responsável pelo carregamento e separação de estoques e reabastecimento dos produtos, garantindo a eficiência e organização do ambiente.</p>
             </div>
 
             <div class="job">
                 <h3>Nascente's Bar</h3>
-                <span class="period">Cargo: Gerente e Garçom</span>
-                <p>Atendimento a clientes, controle de vendas e supervisão da equipe de garçons, garantindo bom
-                    funcionamento do estabelecimento.</p>
+                <span class="position">Cargo: Gerente e Garçom</span>
+                <p class="description">Desempenhei funções de atendimento, controle de vendas e supervisão dos garçons.</p>
             </div>
 
             <div class="job">
                 <h3>Lan House Casa Verde</h3>
-                <span class="period">Cargo: Técnico de T.I. e Tutor de Informática</span>
-                <p>Montagem e manutenção de computadores; instrução de alunos em cursos de informática básica e
-                    avançada.</p>
+                <span class="position">Cargo: Técnico de T.I. e Tutor de Informática</span>
+                <p class="description">Montagem e trocas de componentes eletrônicos de computadores, e responsável por instruir alunos de informática básica e avançada.</p>
             </div>
         </section>
 
-        <!-- Seção Formação -->
+        <!-- Seção Formação Acadêmica -->
         <section id="education">
-            <h2>Formação Acadêmica &amp; Cursos</h2>
+            <h2>Formação Acadêmica</h2>
 
             <div class="education-item">
-                <h3>Universidade Federal da Paraíba</h3>
-                <span class="period">Curso: Ecologia (Ensino Superior Incompleto)</span>
+                <h3>Ensino Superior Incompleto em Ecologia</h3>
+                <span class="institution">Universidade Federal da Paraíba</span>
             </div>
-
+            <div class="education-item">
+                <h3>Análise de dados da Microsoft</h3>
+                <span class="institution">Escola do Trabalhador 4.0</span>
+                <span class="course-type">Curso / Certificação</span>
+            </div>
             <div class="education-item">
                 <h3>Instrutor de Informática Profissional</h3>
-                <span class="period">Curso Técnico / Treinamento</span>
+                 <span class="course-type">Curso / Certificação</span>
             </div>
-
             <div class="education-item">
-                <h3>Gestão de Tráfego Pago</h3>
-                <span class="period">Curso / Treinamento</span>
+                <h3>Curso de Gestão de Tráfego Pago</h3>
+                 <span class="course-type">Curso / Certificação</span>
             </div>
-
             <div class="education-item">
                 <h3>Analista de Marketing Aplicado a Mídias Sociais</h3>
-                <span class="period">Curso / Treinamento</span>
+                 <span class="course-type">Curso / Certificação</span>
+            </div>
+            <div class="education-item">
+                <h3>Adobe PhotoShop Cs6 (Designer Gráfico)</h3>
+                 <span class="course-type">Curso / Certificação</span>
             </div>
         </section>
 
         <!-- Seção Informações Adicionais -->
         <section id="additional-info">
             <h2>Informações Adicionais</h2>
-            <ul>
+            <ul class="additional-info-list">
                 <li>Portador de CNH A-B</li>
                 <li>Disponibilidade para trabalhar em outra cidade ou Estado</li>
                 <li>Flexibilidade para trabalho presencial e remoto</li>
-                <li>Capacidade de atuar em período integral e realizar tarefas eventuais</li>
+                <li>Capacidade de trabalhar em período integral e realizar tarefas eventuais</li>
             </ul>
         </section>
 
         <!-- Seção Contato -->
         <section id="contact">
             <h2>Contato</h2>
+            <div class="contact-info">
+                <p><strong>Telefone:</strong> (83) 9 9191 7776</p>
+                <p><strong>E-mail:</strong> alexjuniook@gmail.com</p>
+                <p><strong>Localização:</strong> Rua Piracaia, 853, Marechal Hermes, Rio de Janeiro - RJ</p>
+            </div>
             <div class="contact-buttons">
-                <a href="mailto:alexjuniook@gmail.com" target="_blank">E-mail</a>
-                <a href="tel:+5583991917776">Telefone</a>
-                <a href="https://wa.me/+5583991917776" target="_blank">WhatsApp</a>
-                <a href="http://t.me/+5583991917776" target="_blank">Telegram</a>
-                <a href="https://maps.app.goo.gl/wSxND8NMUAzZZ5Ds8" target="_blank">Localização</a>
+                <a href="mailto:alexjuniook@gmail.com" target="_blank">Enviar E-mail</a>
+                <a href="https://wa.me/5583991917776" target="_blank">WhatsApp</a>
+                <a href="tel:+5583991917776">Ligar</a>
             </div>
         </section>
     </div>
 
     <footer>
-        © 2025 – Alex J. S. da Silva. Todos os direitos reservados.
+        © 2024 – Alex J. S. da Silva. Todos os direitos reservados.
     </footer>
 </body>
-
 </html>
