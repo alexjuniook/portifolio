@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio – Alex J. S. da Silva</title>
-    <style>
-  :root {
+     <style>
+              :root {
             --color1: #fcbf6b; /* Amarelo / Laranja claro */
             --color2: #a9ad94; /* Verde acinzentado / Oliva claro */
             --color3: #42302e; /* Marrom escuro / Café */
@@ -17,17 +17,17 @@
             --text-dark: #3a2e2c; 
             
             /* Glassmorphism variables */
-            --glass-bg-light: rgba(246, 218, 171, 0.55); /* --color4 com opacidade ajustada */
-            --glass-bg-medium: rgba(218, 189, 123, 0.4); /* --color5 com opacidade */
-            --glass-bg-dark: rgba(66, 48, 46, 0.45); 
-            --glass-border-light: rgba(252, 191, 107, 0.5); 
-            --glass-border-medium: rgba(218, 189, 123, 0.4);
-            --shadow-light: rgba(218, 189, 123, 0.25); 
-            --shadow-strong: rgba(66, 48, 46, 0.3); 
+            --glass-bg-section: rgba(255, 255, 255, 0.25); /* Base para seções, mais claro */
+            --glass-bg-nav: rgba(255, 255, 255, 0.2);    /* Base para nav */
+            --glass-bg-card: rgba(255, 255, 255, 0.15);  /* Base para cards internos, mais sutil */
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --glass-shadow: rgba(50, 50, 93, 0.1); /* Sombra mais suave para o vidro */
+            --glass-shadow-hover: rgba(50, 50, 93, 0.15);
 
-            --blur-intensity: 10px;
-            --section-border-radius: 22px;
-            --button-border-radius: 50px; /* Para botões bem arredondados */
+            --blur-intensity: 8px; /* Reduzido levemente para performance e sutileza */
+            --section-border-radius: 25px; /* Aumentado para mais liquidez */
+            --card-border-radius: 20px;
+            --button-border-radius: 50px;
         }
 
         /* Reset básico */
@@ -47,91 +47,94 @@
             color: var(--text-dark);
             background-color: var(--color4); 
             background-image: 
-                radial-gradient(circle at 15% 25%, var(--color1) 0%, transparent 45%),
-                radial-gradient(circle at 85% 65%, var(--color2) 0%, transparent 55%),
-                radial-gradient(circle at 50% 90%, var(--color5) 0%, transparent 50%),
-                linear-gradient(45deg, var(--color4) 0%, var(--color1) 100%); /* Gradiente linear de fundo */
-            background-blend-mode: screen; /* Misturar os gradientes */
-            background-size: cover; /* Cobrir toda a área */
-            background-attachment: fixed; /* Fundo fixo para melhor efeito parallax */
+                /* Camada de "ruído" sutil para textura */
+                /* url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"), */
+                /* Gradientes radiais suaves como base */
+                radial-gradient(ellipse at top left, var(--color1), transparent 60%),
+                radial-gradient(ellipse at bottom right, var(--color2), transparent 50%),
+                radial-gradient(ellipse at center, var(--color5), transparent 70%),
+                /* Cor de fundo sólida por baixo de tudo */
+                var(--color4);
+            background-size: cover; 
+            background-attachment: fixed; 
             min-height: 100vh;
             overflow-x: hidden; 
-            padding-top: 20px; /* Espaço para a nav sticky */
+            padding-top: 20px; 
         }
 
         a {
-            color: var(--color5); /* Cor dourada para links */
+            color: var(--color5); 
             text-decoration: none;
             transition: color 0.3s ease, transform 0.2s ease;
         }
         a:hover {
-            color: var(--color1); /* Laranja claro no hover */
+            color: var(--color1); 
             transform: translateY(-1px);
         }
 
-        /* Container geral */
         .container {
-            max-width: 960px; /* Um pouco mais estreito para melhor leitura */
+            max-width: 980px; 
             margin: 40px auto; 
-            padding: 0 15px; /* Padding lateral no container */
+            padding: 0 20px; 
         }
 
-        /* Cabeçalho */
         header {
             text-align: center;
             padding: 60px 20px 40px;
             color: var(--text-light); 
             margin-bottom: 50px; 
-            position: relative; /* Para pseudo-elementos se necessário */
+            position: relative; 
         }
 
         header h1 {
-            font-size: 3.2rem; 
-            margin-bottom: 15px;
+            font-size: 3.4rem; 
+            margin-bottom: 20px;
             color: var(--text-light);
-            text-shadow: 2px 3px 6px var(--shadow-strong);
+            text-shadow: 2px 3px 7px var(--color3); /* Sombra mais definida */
             font-weight: 700;
         }
 
         header p.title {
-            font-size: 1.5rem; 
+            font-size: 1.6rem; 
             color: var(--text-light);
-            margin-bottom: 40px; 
-            text-shadow: 1px 2px 4px var(--shadow-strong);
+            margin-bottom: 45px; 
+            text-shadow: 1px 2px 5px var(--color3);
             font-weight: 400; 
         }
 
-        /* Navegação de sessões */
         nav {
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 40px; 
-            padding: 12px; 
-            background: var(--glass-bg-medium);
+            margin-bottom: 50px; 
+            padding: 10px; 
+            background: var(--glass-bg-nav);
             backdrop-filter: blur(var(--blur-intensity));
             -webkit-backdrop-filter: blur(var(--blur-intensity));
             border-radius: var(--button-border-radius); 
-            border: 1px solid var(--glass-border-medium);
-            box-shadow: 0 6px 25px var(--shadow-light);
-            display: table; /* Para centralizar com margin auto */
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 var(--glass-shadow);
+            display: table; 
             position: sticky; 
             top: 20px;
             z-index: 1000;
-            transition: top 0.3s ease, box-shadow 0.3s ease;
+            transition: top 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        nav:hover {
+            box-shadow: 0 10px 40px 0 var(--glass-shadow-hover);
+            background: rgba(255, 255, 255, 0.25); /* Levemente mais claro no hover */
         }
       
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 10px; 
+            gap: 8px; 
             flex-wrap: wrap;
         }
 
         nav ul li a {
-            padding: 12px 25px; 
-            border: none; 
-            border-radius: calc(var(--button-border-radius) - 5px); /* Raio interno menor */
+            padding: 12px 28px; 
+            border-radius: calc(var(--button-border-radius) - 5px); 
             font-size: 1rem;
             color: var(--text-light); 
             background-color: transparent; 
@@ -144,51 +147,49 @@
             background-color: var(--color1); 
             color: var(--color3); 
             transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
-        /* Sessões */
         section {
-            padding: 55px 40px; 
-            background: var(--glass-bg-light);
+            padding: 60px 45px; 
+            background: var(--glass-bg-section);
             backdrop-filter: blur(var(--blur-intensity)); 
             -webkit-backdrop-filter: blur(var(--blur-intensity));
-            margin-bottom: 45px; 
+            margin-bottom: 50px; 
             border-radius: var(--section-border-radius); 
-            border: 1px solid var(--glass-border-light);
-            box-shadow: 0 12px 40px 0 var(--shadow-light);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 15px 45px 0 var(--glass-shadow);
             color: var(--text-dark); 
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
         }
         section:hover {
-            transform: translateY(-6px) scale(1.01); /* Efeito de elevação mais sutil */
-            box-shadow: 0 18px 50px 0 var(--shadow-strong);
+            transform: translateY(-8px) scale(1.015); 
+            box-shadow: 0 20px 55px 0 var(--glass-shadow-hover);
         }
 
         section h2 {
-            font-size: 2.3rem; 
-            margin-bottom: 40px; 
+            font-size: 2.4rem; 
+            margin-bottom: 45px; 
             color: var(--color3); 
             border-bottom: 4px solid var(--color1); 
             display: inline-block;
-            padding-bottom: 12px; 
-            text-shadow: 1px 1px 2px rgba(252,191,107,0.3); /* Sombra com cor1 */
+            padding-bottom: 15px; 
+            text-shadow: 1px 1px 2px rgba(252,191,107,0.4); 
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
-        /* Foto de perfil */
         .profile-photo {
             display: block;
-            margin: 0 auto 35px; 
-            width: 230px; 
-            height: 230px; 
-            border-radius: 40% 60% 45% 55% / 55% 40% 60% 45%; /* Forma orgânica alternada */
+            margin: 0 auto 40px; 
+            width: 240px; 
+            height: 240px; 
+            border-radius: 35% 65% 60% 40% / 50% 45% 55% 50%; /* Forma orgânica mais pronunciada */
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease, border-radius 0.6s ease; 
-            border: 7px solid var(--color1); 
-            box-shadow: 0 0 25px var(--color5), 0 0 45px var(--color1), inset 0 0 20px rgba(0,0,0,0.25); 
+            transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.6s ease, border-radius 0.7s ease; 
+            border: 8px solid var(--color1); 
+            box-shadow: 0 0 30px var(--color5), 0 0 50px var(--color1), inset 0 0 25px rgba(0,0,0,0.3); 
         }
 
         .profile-photo img {
@@ -196,165 +197,157 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s ease;
+            transition: transform 0.7s ease;
         }
 
         .profile-photo:hover {
-            transform: scale(1.12) rotate(4deg) translateY(-5px); 
-            box-shadow: 0 12px 35px var(--shadow-strong), 0 0 50px var(--color1); 
-            border-radius: 55% 45% 60% 40% / 40% 55% 45% 60%; /* Inverte a forma no hover */
+            transform: scale(1.15) rotate(5deg) translateY(-8px); 
+            box-shadow: 0 15px 40px var(--color3), 0 0 60px var(--color1); 
+            border-radius: 60% 40% 45% 55% / 45% 50% 50% 55%; 
         }
         .profile-photo:hover img {
-            transform: scale(1.08) rotate(-2deg); /* Pequena rotação contrária na imagem */
+            transform: scale(1.1) rotate(-3deg); 
         }
 
-        /* Botão de download do currículo */
         .btn-download {
             display: inline-block;
-            margin-top: 25px; 
-            padding: 15px 35px; 
-            background-image: linear-gradient(135deg, var(--color1) 0%, var(--color5) 70%, var(--color1) 100%);
-            background-size: 250% auto;
+            margin-top: 30px; 
+            padding: 16px 38px; 
+            background-image: linear-gradient(135deg, var(--color1) 0%, var(--color5) 60%, var(--color1) 100%);
+            background-size: 280% auto;
             color: var(--color3); 
             border-radius: var(--button-border-radius); 
             font-weight: 700; 
-            font-size: 1.1rem; 
-            transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1); /* Transição mais elaborada */
-            margin-left: 12px; 
-            margin-right: 12px;
+            font-size: 1.15rem; 
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); 
+            margin-left: 15px; 
+            margin-right: 15px;
             border: none; 
-            box-shadow: 0 6px 18px var(--shadow-light);
+            box-shadow: 0 7px 20px var(--glass-shadow);
             text-transform: uppercase; 
-            letter-spacing: 1.2px;
+            letter-spacing: 1.3px;
         }
 
         .btn-download:hover {
             background-position: right center; 
             color: var(--text-light);
-            transform: translateY(-5px) scale(1.08);
-            box-shadow: 0 10px 25px var(--shadow-strong);
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 12px 30px var(--color3); /* Sombra mais forte no hover */
         }
         
         .download-buttons-container {
-            margin-top: 40px; 
+            margin-top: 45px; 
         }
 
-        /* Seção Sobre (Objetivo / Resumo) */
         .about p {
-            margin-bottom: 22px; 
-            font-size: 1.15rem; 
+            margin-bottom: 25px; 
+            font-size: 1.18rem; 
             color: var(--text-dark);
             text-align: justify;
-            line-height: 1.85; 
+            line-height: 1.9; 
         }
         .about p strong {
             color: var(--color3);
-            font-weight: 700; /* Mais destaque */
+            font-weight: 700; 
         }
 
-        /* Seção Habilidades */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 18px; 
+            gap: 20px; 
             list-style: none;
             padding-left: 0;
             justify-content: center; 
         }
 
         .skills-list li {
-            background: linear-gradient(135deg, var(--color1), var(--color5));
+            background: linear-gradient(140deg, var(--color1), var(--color5));
             color: var(--color3); 
-            padding: 14px 22px; 
+            padding: 15px 25px; 
             border-radius: var(--button-border-radius); 
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             font-weight: 600;
-            box-shadow: 0 4px 10px var(--shadow-light);
+            box-shadow: 0 5px 12px var(--glass-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            border: 1px solid transparent;
+            border: 1px solid rgba(255,255,255,0.1); /* Borda sutil interna */
         }
         .skills-list li:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 7px 15px var(--shadow-strong);
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 8px 18px var(--color3);
             color: var(--text-light);
-            background: linear-gradient(135deg, var(--color5), var(--color1));
+            background: linear-gradient(140deg, var(--color5), var(--color1));
         }
         
-        /* Estilo para lista em Informações Adicionais */
         .additional-info-list {
             list-style: none;
             padding-left: 0;
         }
         .additional-info-list li {
-            margin-bottom: 15px; 
-            font-size: 1.15rem; 
+            margin-bottom: 18px; 
+            font-size: 1.18rem; 
             color: var(--text-dark);
-            padding: 15px 20px;
-            background: rgba(255,255,255,0.2); 
-            border-radius: 15px; 
-            border-left: 6px solid var(--color1); 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 18px 22px;
+            background: rgba(255,255,255,0.25); 
+            border-radius: 18px; 
+            border-left: 7px solid var(--color1); 
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
         }
 
-        /* Seção Experiência e Formação (estilo de card unificado) */
         .job, .education-item {
-            margin-bottom: 35px; 
-            padding: 30px;
-            background: var(--glass-bg-dark); 
-            backdrop-filter: blur(calc(var(--blur-intensity) + 4px)); 
-            -webkit-backdrop-filter: blur(calc(var(--blur-intensity) + 4px));
-            border-radius: var(--section-border-radius);
-            border: 1px solid var(--glass-border-dark);
-            box-shadow: 0 8px 28px var(--shadow-strong);
-            color: var(--text-light); 
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            margin-bottom: 40px; 
+            padding: 35px;
+            background: var(--glass-bg-card); 
+            backdrop-filter: blur(calc(var(--blur-intensity) + 2px)); 
+            -webkit-backdrop-filter: blur(calc(var(--blur-intensity) + 2px));
+            border-radius: var(--card-border-radius);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px var(--glass-shadow);
+            color: var(--text-dark); /* Cards internos com texto escuro sobre fundo claro de vidro */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
         }
         .job:hover, .education-item:hover {
-            transform: scale(1.03) translateY(-3px); 
-            box-shadow: 0 12px 35px var(--shadow-strong);
+            transform: scale(1.035) translateY(-4px); 
+            box-shadow: 0 14px 40px var(--glass-shadow-hover);
         }
 
-        .job:last-child, .education-item:last-child {
-            margin-bottom: 0;
-        }
+        .job:last-child, .education-item:last-child { margin-bottom: 0; }
 
         .job h3, .education-item h3 {
-            font-size: 1.5rem; 
-            margin-bottom: 12px; 
-            color: var(--color1); 
+            font-size: 1.6rem; 
+            margin-bottom: 15px; 
+            color: var(--color3); 
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.4px;
         }
 
-        .job span.position, .education-item span.institution, .education-item span.course-type { 
+        .job span.position, .education-item span.institution { 
             display: block;
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             font-style: italic;
-            color: var(--color4); 
-            margin-bottom: 15px; 
+            color: var(--color5); /* Dourado para estes spans */
+            margin-bottom: 18px; 
         }
-        .job span.position {
-            font-weight: 500;
-        }
+        .job span.position { font-weight: 500; }
          .education-item span.course-type {
-            font-size: 1rem;
+            display: block;
+            font-size: 1.05rem;
             color: var(--color2); 
-            font-style: normal; /* Tipo de curso não itálico */
+            font-style: normal; 
+            margin-bottom: 15px;
          }
 
         .job p.description { 
-            font-size: 1.1rem; 
-            color: var(--text-light);
-            margin-bottom: 10px;
+            font-size: 1.12rem; 
+            color: var(--text-dark);
+            margin-bottom: 12px;
             text-align: justify;
-            line-height: 1.75;
+            line-height: 1.8;
         }
 
-        /* Seção Contato */
         .contact-info p {
             text-align: center;
-            margin-bottom: 15px; 
-            font-size: 1.15rem; 
+            margin-bottom: 18px; 
+            font-size: 1.18rem; 
             color: var(--text-dark);
         }
         .contact-info p strong {
@@ -365,94 +358,101 @@
         .contact-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 22px; 
+            gap: 25px; 
             justify-content: center;
-            margin-top: 35px; 
+            margin-top: 40px; 
         }
 
         .contact-buttons a {
             display: inline-flex; 
             align-items: center;
             justify-content: center;
-            padding: 16px 32px; 
-            background-image: linear-gradient(135deg, var(--color3) 0%, var(--color5) 70%, var(--color3) 100%);
-            background-size: 250% auto;
+            padding: 18px 35px; 
+            background-image: linear-gradient(135deg, var(--color3) 0%, var(--color5) 60%, var(--color3) 100%);
+            background-size: 280% auto;
             color: var(--text-light); 
             border-radius: var(--button-border-radius); 
-            font-size: 1.1rem; 
-            transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+            font-size: 1.15rem; 
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
             font-weight: 700;
-            box-shadow: 0 6px 18px var(--shadow-light);
+            box-shadow: 0 7px 20px var(--glass-shadow);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.1px;
             border: none;
         }
 
         .contact-buttons a:hover {
             background-position: right center;
             color: var(--color1);
-            transform: translateY(-5px) scale(1.08);
-            box-shadow: 0 10px 25px var(--shadow-strong);
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 12px 30px var(--color3);
         }
 
-        /* Rodapé */
         footer {
             text-align: center;
-            padding: 45px 15px; 
+            padding: 50px 15px; 
             color: var(--text-light); 
-            font-size: 1.05rem; 
-            background: transparent; /* Usa o fundo do body */
-            margin-top: 60px; 
-            border-top: 1px solid var(--glass-border-dark); 
-            text-shadow: 1px 1px 4px var(--shadow-strong);
+            font-size: 1.08rem; 
+            background: transparent; 
+            margin-top: 70px; 
+            border-top: 1px solid var(--glass-border); 
+            text-shadow: 1px 1px 5px var(--color3);
         }
 
-        /* Media Queries para Responsividade */
+        @media (max-width: 992px) { /* Ajustes para tablets e telas menores */
+            .container { max-width: 90%; }
+            header h1 { font-size: 2.8rem; }
+            header p.title { font-size: 1.4rem; }
+            section h2 { font-size: 2.1rem; }
+        }
+
         @media (max-width: 768px) {
-            body {
-                padding-top: 10px; /* Ajustar padding para nav sticky */
-            }
-            header h1 { font-size: 2.5rem; }
+            body { padding-top: 10px; }
+            header h1 { font-size: 2.4rem; }
             header p.title { font-size: 1.2rem; }
             nav { 
                 padding: 8px; 
                 gap: 5px;
-                position: static; /* Remover sticky em telas menores se causar problemas */
-                display: block; /* Para ocupar largura total */
+                position: static; 
+                display: block; 
             }
             nav ul { gap: 8px; }
-            nav ul li a { padding: 10px 15px; font-size: 0.9rem;}
+            nav ul li a { padding: 10px 18px; font-size: 0.95rem;}
             
-            section { padding: 40px 20px; margin-bottom: 30px;}
-            section h2 { font-size: 1.8rem; margin-bottom: 30px; padding-bottom: 8px;}
+            section { padding: 40px 25px; margin-bottom: 35px;}
+            section h2 { font-size: 1.9rem; margin-bottom: 35px; padding-bottom: 10px;}
             
-            .profile-photo { width: 180px; height: 180px; border-width: 5px;}
-            .btn-download { font-size: 1rem; padding: 12px 25px; }
-            .skills-list li { font-size: 0.95rem; padding: 10px 18px;}
-            .job h3, .education-item h3 { font-size: 1.3rem;}
-            .job p.description, .about p, .additional-info-list li, .contact-info p { font-size: 1rem; }
-            .contact-buttons a { font-size: 1rem; padding: 12px 25px;}
+            .profile-photo { width: 200px; height: 200px; border-width: 6px;}
+            .btn-download { font-size: 1rem; padding: 14px 28px; }
+            .skills-list li { font-size: 1rem; padding: 12px 20px;}
+            .job h3, .education-item h3 { font-size: 1.4rem;}
+            .job p.description, .about p, .additional-info-list li, .contact-info p { font-size: 1.05rem; }
+            .contact-buttons a { font-size: 1rem; padding: 14px 28px;}
 
-            .download-buttons-container a.btn-download { /* Empilhar botões de download */
-                 display: block;
-                 margin-left: auto;
-                 margin-right: auto;
-                 margin-bottom: 15px;
-                 width: fit-content; 
+            .download-buttons-container a.btn-download { 
+                 display: block; margin-left: auto; margin-right: auto;
+                 margin-bottom: 18px; width: fit-content; 
             }
-            .download-buttons-container a.btn-download:last-child {
-                margin-bottom: 0;
-            }
+            .download-buttons-container a.btn-download:last-child { margin-bottom: 0; }
         }
 
         @media (max-width: 480px) {
+            header { padding: 40px 15px 30px; }
             header h1 { font-size: 2rem; }
-            header p.title { font-size: 1.1rem; }
-            nav ul li a { padding: 8px 12px; font-size: 0.85rem; }
-            section h2 { font-size: 1.6rem; }
-            .profile-photo { width: 150px; height: 150px; }
+            header p.title { font-size: 1.1rem; margin-bottom: 30px; }
+            nav ul li a { padding: 9px 14px; font-size: 0.9rem; }
+            section { padding: 30px 20px; }
+            section h2 { font-size: 1.7rem; margin-bottom: 30px;}
+            .profile-photo { width: 160px; height: 160px; border-width: 5px; margin-bottom: 30px;}
+            .btn-download, .contact-buttons a { font-size: 0.95rem; padding: 12px 22px; letter-spacing: 1px;}
+            .skills-list { gap: 12px; }
+            .skills-list li { font-size: 0.9rem; padding: 10px 15px;}
+            .job h3, .education-item h3 { font-size: 1.25rem;}
+            .job p.description, .about p, .additional-info-list li, .contact-info p { font-size: 0.95rem; line-height: 1.7; }
+            footer { padding: 35px 10px; font-size: 0.95rem;}
         }
     </style>
+
 </head>
 
 <body>
