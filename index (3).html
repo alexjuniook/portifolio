@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio – Alex J. S. da Silva</title>
+    <style>
+        :root {
+            /* Harmonizado com o PDF do currículo (tons sóbrios, clean, dourado/bege/marrom/preto) */
+            --color1: #fffbea; /* Fundo claro, quase branco */
+            --color2: #cab06e; /* Dourado/bege */
+            --color3: #3d2b1f; /* Marrom escuro/café */
+            --color4: #f5eddc; /* Bege muito claro */
+            --color5: #a6a6a6; /* Cinza neutro para detalhes */
+            --color6: #212121; /* Preto para texto principal */
+
+            --text-light: #fff;
+            --text-dark: #2b211a;
+
+            --glass-bg-light: rgba(250, 245, 230, 0.8);
+            --glass-bg-medium: rgba(202, 176, 110, 0.2);
+            --glass-bg-dark: rgba(61, 43, 31, 0.5);
+            --glass-border-light: rgba(202, 176, 110, 0.35);
+            --glass-border-medium: rgba(202, 176, 110, 0.2);
+            --shadow-light: rgba(202, 176, 110, 0.17);
+            --shadow-strong: rgba(61, 43, 31, 0.25);
+
+            --blur-intensity: 10px;
+            --section-border-radius: 22px;
+            --button-border-radius: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--color6);
+            background: var(--color1);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 0;
+        }
+
+        /* CAPA */
+        .capa-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 40px auto;
+            width: 70vw;
+            max-width: 1050px;
+            min-width: 240px;
+            border-radius: 32px;
+            margin-top: 32px;
+            box-shadow: 0 8px 32px var(--shadow-light);
+            overflow: hidden;
+        }
+        .capa-img {
+            width: 100%;
+            display: block;
+            border-radius: 32px;
+            object-fit: cover;
+            aspect-ratio: 4/1;
+            min-height: 110px;
+            background: #e5ded1;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto 40px auto;
+            padding: 0 15px;
+        }
+
+        /* Cabeçalho reorganizado */
+        header {
+            text-align: center;
+            padding: 35px 20px 20px 20px;
+            color: var(--color3);
+            margin-bottom: 30px;
+            background: transparent;
+        }
+        header h1 {
+            font-size: 2.9rem;
+            margin-bottom: 10px;
+            color: var(--color3);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        header p.title {
+            font-size: 1.2rem;
+            color: var(--color2);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        nav {
+            margin: 0 auto 30px auto;
+            padding: 10px 24px;
+            background: var(--glass-bg-medium);
+            backdrop-filter: blur(var(--blur-intensity));
+            border-radius: var(--button-border-radius);
+            border: 1px solid var(--glass-border-medium);
+            box-shadow: 0 6px 24px var(--shadow-light);
+            display: table;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        nav ul li a {
+            padding: 10px 22px;
+            border-radius: 28px;
+            font-size: 1rem;
+            color: var(--color3);
+            background: transparent;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background .2s, color .2s;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background: var(--color2);
+            color: var(--color1);
+        }
+        .download-buttons-container {
+            margin: 25px 0 0 0;
+        }
+        .btn-download {
+            display: inline-block;
+            margin: 0 8px 12px 8px;
+            padding: 13px 30px;
+            background: linear-gradient(90deg, var(--color2), var(--color4));
+            color: var(--color3);
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: none;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+            transition: background 0.35s, color 0.2s, transform 0.2s;
+        }
+        .btn-download:hover {
+            background: var(--color3);
+            color: var(--color1);
+            transform: scale(1.06);
+        }
+
+        /* Perfil reorganizado */
+        .perfil-central {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 12px;
+            border-radius: 30%;
+            overflow: hidden;
+            border: 4px solid var(--color2);
+            box-shadow: 0 0 25px var(--color4);
+            background: var(--color1);
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .perfil-nome-cargo {
+            text-align: center;
+        }
+        .perfil-nome-cargo h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color3);
+            margin-bottom: 4px;
+        }
+        .perfil-nome-cargo .perfil-cargo {
+            color: var(--color2);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .perfil-nome-cargo .perfil-local {
+            font-size: 1rem;
+            color: var(--color5);
+        }
+
+        /* Seções gerais */
+        section {
+            padding: 40px 30px;
+            background: var(--glass-bg-light);
+            margin-bottom: 36px;
+            border-radius: var(--section-border-radius);
+            border: 1px solid var(--glass-border-light);
+            box-shadow: 0 6px 32px var(--shadow-light);
+            color: var(--color3);
+        }
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 28px;
+            color: var(--color3);
+            border-bottom: 3px solid var(--color2);
+            display: inline-block;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        /* Sobre/Objetivo */
+        .about p {
+            margin-bottom: 16px;
+            font-size: 1.15rem;
+            color: var(--color6);
+            text-align: justify;
+            line-height: 1.8;
+        }
+        .about p strong {
+            color: var(--color3);
+            font-weight: 700;
+        }
+
+        /* Habilidades */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            list-style: none;
+            justify-content: center;
+        }
+        .skills-list li {
+            background: linear-gradient(90deg, var(--color2), var(--color4));
+            color: var(--color3);
+            padding: 12px 20px;
+            border-radius: 28px;
+            font-size: 1.03rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            border: 1px solid transparent;
+            transition: background 0.3s, color 0.3s;
+        }
+        .skills-list li:hover {
+            background: var(--color3);
+            color: var(--color4);
+        }
+
+        /* Cards Experiência e Formação */
+        .job, .education-item {
+            margin-bottom: 26px;
+            padding: 22px;
+            background: var(--glass-bg-dark);
+            border-radius: var(--section-border-radius);
+            border: 1px solid var(--glass-border-medium);
+            box-shadow: 0 4px 18px var(--shadow-strong);
+            color: var(--color1);
+        }
+        .job h3, .education-item h3 {
+            font-size: 1.22rem;
+            margin-bottom: 7px;
+            color: var(--color2);
+            font-weight: 700;
+        }
+        .job span.position, .education-item span.institution, .education-item span.course-type {
+            display: block;
+            font-size: 1.05rem;
+            color: var(--color4);
+            margin-bottom: 10px;
+        }
+        .job p.description, .education-item p.description {
+            font-size: 1.05rem;
+            color: var(--color1);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        /* Informações adicionais */
+        .additional-info-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .additional-info-list li {
+            margin-bottom: 10px;
+            font-size: 1.12rem;
+            color: var(--color3);
+            background: #fff9e8cc;
+            border-radius: 12px;
+            border-left: 5px solid var(--color2);
+            padding: 10px 16px;
+        }
+
+        /* Contato */
+        .contact-info p {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--color3);
+        }
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .contact-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 28px;
+            background: var(--color2);
+            color: var(--color3);
+            border-radius: var(--button-border-radius);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .contact-buttons a:hover {
+            background: var(--color3);
+            color: var(--color1);
+            transform: translateY(-4px) scale(1.06);
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 35px 15px;
+            color: var(--color5);
+            font-size: 1.05rem;
+            background: transparent;
+            margin-top: 32px;
+            border-top: 1px solid var(--glass-border-medium);
+        }
+
+        /* Responsivo */
+        @media (max-width: 900px) {
+            .capa-container { width: 90vw; }
+            .container { max-width: 99vw; }
+        }
+        @media (max-width: 600px) {
+            .capa-container {
+                width: 98vw;
+                margin: 0 auto 24px auto;
+            }
+            header h1 { font-size: 2.1rem; }
+            .perfil-nome-cargo h2 { font-size: 1.2rem; }
+            section { padding: 20px 6px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CAPA -->
+    <div class="capa-container">
+        <img src="capa.jpg" alt="Capa do portfólio" class="capa-img" />
+    </div>
+
+    <header>
+        <div class="perfil-central">
+            <div class="profile-photo">
+                <img src="perfil.jpg" alt="Foto de perfil de Alex J. S. da Silva" />
+            </div>
+            <div class="perfil-nome-cargo">
+                <h2>Alex J. S. da Silva</h2>
+                <div class="perfil-cargo">Profissional de Computação</div>
+                <div class="perfil-local">Rio de Janeiro – RJ</div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre / Objetivo</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#education">Formação</a></li>
+                <li><a href="#additional-info">Informações Adicionais</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="download-buttons-container">
+            <a href="Currículo Alex J S Silva.pdf" download class="btn-download">Baixar Currículo (PT-BR)</a>
+            <a href="Currículo Alex J S Silva - Inglês.pdf" download class="btn-download">Download CV (EN-US)</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Seção Sobre / Objetivo -->
+        <section id="about" class="about">
+            <h2>Sobre / Objetivo</h2>
+            <p>
+                Profissional versátil com experiência em TI, marketing digital e atendimento ao público. Atua com suporte técnico, edição de mídias, design gráfico e gestão de tráfego. Domina ferramentas como Excel, Power BI, edição de áudio/vídeo e softwares de design, sempre focado em resultados e eficiência.
+            </p>
+            <p>
+                <strong>Resumo Profissional:</strong><br>
+                Multidisciplinar, adaptável a diversos setores e ambientes, com forte senso de responsabilidade, organização e facilidade para novos aprendizados.
+            </p>
+        </section>
+
+        <!-- Seção Habilidades -->
+        <section id="skills">
+            <h2>Habilidades</h2>
+            <ul class="skills-list">
+                <li>Excel, Word, Power Point</li>
+                <li>Power BI e TOTVS - RM</li>
+                <li>Atendimento ao público</li>
+                <li>Social Media</li>
+                <li>Gestão de Tráfego</li>
+                <li>Básicos JavaScript, Python e CSS HTML</li>
+                <li>Edição de áudio e vídeo</li>
+                <li>Design de artes digitais</li>
+                <li>Segurança Digital</li>
+            </ul>
+        </section>
+
+        <!-- Seção Experiência Profissional -->
+        <section id="experience">
+            <h2>Experiência Profissional</h2>
+            <div class="job">
+                <h3>Estivas Novo Prado LTDA</h3>
+                <span class="position">Carregador e Separador de Estoque</span>
+                <p class="description">Responsável pelo carregamento e separação de estoques para cargas, garantindo a eficiência e organização do processo.</p>
+            </div>
+            <div class="job">
+                <h3>Câmara Municipal de Baía da Traição</h3>
+                <span class="position">Assessor</span>
+                <p class="description">Desempenhei funções de assessoramento, auxiliando em atividades administrativas e de comunicação.</p>
+            </div>
+            <div class="job">
+                <h3>Eternizzy Photography</h3>
+                <span class="position">Editor e Auxiliar de Produção</span>
+                <p class="description">Responsável pela edição de fotografias, sublimação em diversos produtos e confecção de materiais concluindo com relatórios diários.</p>
+            </div>
+            <div class="job">
+                <h3>SkyBar</h3>
+                <span class="position">Estoquista</span>
+                <p class="description">Responsável pelo carregamento e separação de estoques e reabastecimento dos produtos, garantindo a eficiência e organização do ambiente.</p>
+            </div>
+            <div class="job">
+                <h3>Nascente's Bar</h3>
+                <span class="position">Gerente e Garçom</span>
+                <p class="description">Desempenhei funções de atendimento, controle de vendas e supervisão dos garçons.</p>
+            </div>
+            <div class="job">
+                <h3>Lan House Casa Verde</h3>
+                <span class="position">Técnico de T.I. e Tutor de Informática</span>
+                <p class="description">Montagem e trocas de componentes eletrônicos de computadores, e responsável por instruir alunos de informática básica e avançada.</p>
+            </div>
+        </section>
+
+        <!-- Seção Formação Acadêmica -->
+        <section id="education">
+            <h2>Formação Acadêmica</h2>
+            <div class="education-item">
+                <h3>Ensino Superior Incompleto em Ecologia</h3>
+                <span class="institution">Universidade Federal da Paraíba</span>
+            </div>
+            <div class="education-item">
+                <h3>Análise de dados da Microsoft</h3>
+                <span class="institution">Escola do Trabalhador 4.0</span>
+                <span class="course-type">Curso / Certificação</span>
+            </div>
+            <div class="education-item">
+                <h3>Instrutor de Informática Profissional</h3>
+                <span class="course-type">Curso / Certificação</span>
+            </div>
+            <div class="education-item">
+                <h3>Curso de Gestão de Tráfego Pago</h3>
+                <span class="course-type">Curso / Certificação</span>
+            </div>
+            <div class="education-item">
+                <h3>Analista de Marketing Aplicado a Mídias Sociais</h3>
+                <span class="course-type">Curso / Certificação</span>
+            </div>
+            <div class="education-item">
+                <h3>Adobe PhotoShop Cs6 (Designer Gráfico)</h3>
+                <span class="course-type">Curso / Certificação</span>
+            </div>
+        </section>
+
+        <!-- Seção Informações Adicionais -->
+        <section id="additional-info">
+            <h2>Informações Adicionais</h2>
+            <ul class="additional-info-list">
+                <li>Portador de CNH A-B</li>
+                <li>Disponibilidade para trabalhar em outra cidade ou Estado</li>
+                <li>Flexibilidade para trabalho presencial e remoto</li>
+                <li>Capacidade de trabalhar em período integral e realizar tarefas eventuais</li>
+            </ul>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contact">
+            <h2>Contato</h2>
+            <div class="contact-info">
+                <p><strong>Telefone:</strong> (83) 9 9191 7776</p>
+                <p><strong>E-mail:</strong> alexjuniook@gmail.com</p>
+                <p><strong>Localização:</strong> Rua Piracaia, 853, Marechal Hermes, Rio de Janeiro - RJ</p>
+            </div>
+            <div class="contact-buttons">
+                <a href="mailto:alexjuniook@gmail.com" target="_blank">Enviar E-mail</a>
+                <a href="https://wa.me/5583991917776" target="_blank">WhatsApp</a>
+                <a href="tel:+5583991917776">Ligar</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        © 2024 – Alex J. S. da Silva. Todos os direitos reservados.
+    </footer>
+</body>
+</html>
